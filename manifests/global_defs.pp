@@ -17,12 +17,16 @@
 # $router_id::                Define the router ID.
 #                             Default: undef.
 #
+# $script_security::          Toggle script security.
+#                             Default: false.
+#
 class keepalived::global_defs(
   $notification_email      = undef,
   $notification_email_from = undef,
   $smtp_server             = undef,
   $smtp_connect_timeout    = undef,
   $router_id               = undef,
+  $script_security         = undef,
 ) inherits keepalived::params {
   concat::fragment { 'keepalived.conf_globaldefs':
     target  => "${::keepalived::params::config_dir}/keepalived.conf",

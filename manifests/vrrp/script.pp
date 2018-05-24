@@ -22,6 +22,9 @@
 # $timeout::  max time to wait for the vrrp script to return.
 #             Default: undef
 #
+# $user::     user to run script as.
+#             Default: undef
+#
 define keepalived::vrrp::script (
   $interval  = '2',
   $script    = undef,
@@ -29,6 +32,7 @@ define keepalived::vrrp::script (
   $fall      = undef,
   $rise      = undef,
   $timeout   = undef,
+  $user      = undef,
   $no_weight = false,
 ) {
   $_name = regsubst($name, '[:\/\n]', '')
